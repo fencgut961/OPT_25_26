@@ -3,14 +3,14 @@
 
 # 📘 Plan de Estudio — Python desde Cero
 
-## 🧠 Módulo 1: Fundamentos y Lógica de Programación (1 mes)
+## 🧠 Bloque 1: Fundamentos y Lógica de Programación (1 mes)
 
 * Sintaxis básica, variables, tipos de datos y operadores.
 * Estructuras de control (`if`, `elif`, `else`), bucles (`for`, `while`) y depuración en *IntelliJ*.
 
 ---
 
-## 📦 Módulo 2: Funciones y Colecciones de Datos (1.5 meses)
+## 📦 Bloque 2: Funciones y Colecciones de Datos (1.5 meses)
 
 * Funciones: definición, parámetros, valores de retorno y ámbito.
 * Estructuras de datos: listas, tuplas y diccionarios.
@@ -18,7 +18,7 @@
 
 ---
 
-## 🛠️ Módulo 3: Archivos y Módulos (1.5 meses)
+## 🛠️ Bloque 3: Archivos y Módulos (1.5 meses)
 
 * Manejo de ficheros: lectura, escritura y manejo de excepciones.
 * Módulos estándar (`os`, `sys`, `math`) y librerías externas (`pip`).
@@ -26,14 +26,14 @@
 
 ---
 
-## 🤖 Módulo 4: Programación Orientada a Objetos (POO) (1 mes)
+## 🤖 Bloque 4: Programación Orientada a Objetos (POO) (1 mes)
 
 * Clases, objetos, atributos, métodos y el constructor `__init__`.
 * Encapsulamiento (`@property`) y métodos especiales (`__str__`, `__repr__`).
 
 ---
 
-## 🏗️🚀 Módulo 5: Pilares de la POO y Proyecto Final (2 meses)
+## 🏗️🚀 Bloque 5: Pilares de la POO y Proyecto Final (2 meses)
 
 * Herencia y polimorfismo.
 * Planificación y desarrollo del proyecto final integrador.
@@ -60,3 +60,4 @@
 | **Mes 7** | Semanas 25-26 | Desarrollo, revisión y presentación final               |
 
 ---
+
