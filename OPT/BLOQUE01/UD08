@@ -1,0 +1,127 @@
+
+---
+
+# 🔹 Unidad 1.8 – Depuración en IntelliJ 🕵️‍♂️
+
+## 🎯 Objetivos de aprendizaje
+
+• Comprender qué es la **depuración** y por qué es importante.
+• Aprender a usar **breakpoints** en IntelliJ.
+• Inspeccionar **variables** mientras el programa se ejecuta.
+• Detectar y corregir **errores lógicos**.
+
+---
+
+## 🛠️ ¿Qué es la depuración?
+
+La **depuración (debugging)** es el proceso de **detectar, analizar y corregir errores** en un programa.
+Un error puede hacer que el programa falle, se bloquee o, peor aún, que **funcione mal sin darnos cuenta**.
+
+### 📌 Tipos de errores más comunes:
+
+* **Errores de sintaxis** → impiden que el programa se ejecute.
+  Ejemplo: olvidar los dos puntos `:` después de un `if`.
+* **Errores lógicos** → el programa se ejecuta, pero da un resultado incorrecto.
+  Ejemplo: calcular mal un promedio porque faltan paréntesis.
+
+👉 Los **errores lógicos** son los más difíciles de detectar, y aquí es donde el **depurador de IntelliJ** resulta clave.
+
+---
+
+## 🔴 Breakpoints (puntos de interrupción)
+
+Un **breakpoint** es un marcador que detiene la ejecución del programa en una línea específica para inspeccionar lo que está ocurriendo en ese punto.
+
+### 📌 Pasos en IntelliJ IDEA:
+
+1. Haz clic en el **margen izquierdo** de la línea donde quieras detener el programa → aparecerá un **círculo rojo**.
+2. Ejecuta el programa en modo **Debug** (botón con un insecto 🪲).
+3. El programa se **pausará** antes de ejecutar esa línea.
+
+➡️ Esto permite revisar qué valores tienen las variables y cómo avanza el flujo del programa.
+
+---
+
+## 🔍 Inspección de variables
+
+Cuando el programa está **pausado** en un breakpoint:
+
+* Puedes ver el **valor actual de todas las variables** en la ventana del depurador.
+* Puedes **ejecutar paso a paso** para seguir el flujo del programa:
+
+  * **Step Over** → ejecuta la línea actual y pasa a la siguiente.
+  * **Step Into** → entra dentro de una función llamada en esa línea.
+  * **Step Out** → sale de la función y regresa al nivel superior.
+
+👉 Esto ayuda a descubrir en qué momento una variable toma un valor incorrecto.
+
+---
+
+## 📚 Ejemplo de error lógico
+
+El siguiente programa debería calcular el promedio de tres números, pero tiene un error:
+
+```python
+# Programa con error
+num1 = 10
+num2 = 20
+num3 = 30
+
+promedio = num1 + num2 + num3 / 3
+print(f"El promedio es: {promedio}")  # Espera 20, pero muestra 40.0
+```
+
+📌 **Explicación del error**:
+Python aplica primero la división (`/`) y luego la suma (por la **precedencia de operadores**).
+En realidad, queremos que **sume todo antes de dividir**.
+
+✅ **Corrección**:
+
+```python
+promedio = (num1 + num2 + num3) / 3
+print(f"El promedio es: {promedio}")  # Ahora sí muestra 20.0
+```
+
+👉 Con el depurador, el alumno puede **detenerse en la línea del cálculo**, inspeccionar el valor de `promedio` y descubrir por qué no es el esperado.
+
+---
+
+## 📝 Ejercicio guiado — `debug_ejemplo.py`
+
+Crea un script que:
+
+1. Pida dos números al usuario.
+2. Calcule la división de ambos.
+3. Introduzca a propósito un error: usa `num1 + num2 / 2` en lugar de `(num1 + num2) / 2`.
+4. Ejecútalo en **modo depuración** en IntelliJ y observa qué valores toman las variables en cada paso.
+
+---
+
+## 📝 Reto a entregar — `analizador_notas.py`
+
+Crea un script que:
+
+1. Pida al usuario **tres notas**.
+2. Calcule el promedio.
+3. Introduzca un **error lógico** en el cálculo (como en el ejemplo anterior).
+4. Usa IntelliJ en modo depuración para encontrar y corregir el error.
+5. Añade un **docstring al inicio** explicando qué hacía mal el programa y cómo se corrigió.
+
+---
+
+## 💡 Consejos prácticos de depuración
+
+* **Divide y vencerás** → si un programa es largo, depúralo en secciones pequeñas.
+* **Usa print() como apoyo** → aunque el depurador es más potente, imprimir valores puntuales también ayuda.
+* **No ignores los warnings** → IntelliJ suele mostrar advertencias antes de que se conviertan en errores.
+* **Depurar no es solo corregir** → también sirve para **entender mejor cómo funciona tu código**.
+
+---
+
+## ➡️ RA1. ce5
+
+Se han seguido buenas prácticas de **organización y documentación del código**, aplicando indentación adecuada y usando la depuración para **detectar y corregir errores de manera eficaz**.
+
+---
+
+👉 ¿Quieres que prepare la **Unidad 1.9 – Manejo de errores (try/except)** para que complemente lo aprendido en depuración?

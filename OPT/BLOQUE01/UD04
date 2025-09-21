@@ -1,0 +1,134 @@
+
+---
+
+# 🔹 Unidad 1.4 – Estructuras condicionales (if, elif, else)
+
+## 🎯 Objetivos de aprendizaje
+
+• Aprender a tomar decisiones en el programa con `if`.
+• Usar `if...else` para ejecutar caminos alternativos.
+• Manejar múltiples condiciones con `if...elif...else`.
+• Aplicar condicionales a problemas cotidianos.
+
+---
+
+## 🧩 Sentencia if
+
+La sentencia `if` permite **ejecutar un bloque de código solo si una condición es verdadera**.
+
+```python
+edad = 20
+
+if edad >= 18:
+    print("Eres mayor de edad")
+```
+
+➡️ Resultado: `Eres mayor de edad`
+
+📌 Si la condición no se cumple, el bloque no se ejecuta y el programa sigue su curso.
+
+---
+
+## 🔀 if...else
+
+El `if...else` permite elegir entre dos caminos:
+
+* Si la condición es verdadera, se ejecuta el bloque de `if`.
+* Si no lo es, se ejecuta el bloque de `else`.
+
+```python
+temperatura = 15
+
+if temperatura > 20:
+    print("Hace calor")
+else:
+    print("Hace frío")
+```
+
+➡️ Resultado: `Hace frío`
+
+---
+
+## 🔗 if...elif...else
+
+Cuando tenemos **múltiples condiciones**, podemos usar `elif` (else if).
+
+```python
+nota = 72
+
+if nota >= 90:
+    print("Excelente")
+elif nota >= 70:
+    print("Notable")
+elif nota >= 50:
+    print("Aprobado")
+else:
+    print("Reprobado")
+```
+
+➡️ Resultado: `Notable`
+
+📌 El programa evalúa las condiciones en orden y ejecuta la primera que sea verdadera.
+
+---
+
+## 📚 Ejemplo práctico: Clasificador de números
+
+```python
+numero = -5
+
+if numero > 0:
+    print("El número es positivo")
+elif numero < 0:
+    print("El número es negativo")
+else:
+    print("El número es cero")
+```
+
+➡️ Resultado: `El número es negativo`
+
+---
+
+## 📝 Ejercicio guiado
+
+Crea un script **`clasificador_edad.py`** que:
+
+1. Pida al usuario su edad.
+2. Use condicionales para mostrar:
+
+   * `"Eres menor de edad"` si es `< 18`.
+   * `"Eres adulto"` si está entre `18 y 65`.
+   * `"Eres adulto mayor"` si es `>= 65`.
+
+👉 Ejemplo de ejecución:
+
+```
+Introduce tu edad: 70
+Eres adulto mayor
+```
+
+---
+
+## 💡 Ejercicio entregar
+
+Crea un script **`calculadora_condicional.py`** que:
+
+1. Pida al usuario dos números (`num1`, `num2`).
+2. Pida elegir una operación: **suma, resta, multiplicación o división**.
+3. Use `if...elif...else` para realizar la operación seleccionada.
+4. Si elige una opción inválida, mostrar `"Operación no reconocida"`.
+
+👉 Ejemplo de salida:
+
+```
+Elige operación (suma, resta, multiplicacion, division): suma
+Resultado: 25
+```
+
+---
+
+## ➡️ RA1. ce3
+
+Se han aplicado correctamente las **estructuras de control** (`if`, `elif`, `else`) para tomar decisiones y controlar el flujo del programa.
+
+---

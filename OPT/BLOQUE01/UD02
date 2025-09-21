@@ -1,0 +1,218 @@
+
+---
+
+# 🔹 Unidad 1.2 – Variables, tipos de datos y operadores básicos
+
+## 🎯 Objetivos de aprendizaje
+
+• Comprender qué es una variable y cómo se usa en Python.
+• Conocer los tipos de datos primitivos más importantes.
+• Usar operadores aritméticos y de asignación.
+• Practicar con ejemplos sencillos para afianzar conceptos.
+
+---
+
+## 📦 ¿Qué es una variable?
+
+Una **variable** es un nombre simbólico que se asocia a un valor en la memoria del ordenador. Se usa para **almacenar, manipular y reutilizar información** en un programa.
+
+En la práctica, podemos imaginar que es como una **caja con una etiqueta**:
+
+* La **etiqueta** es el nombre de la variable.
+* El **contenido** es el valor que guarda.
+
+En Python:
+
+* No es necesario declarar el tipo antes de usar una variable (tipado dinámico).
+* El intérprete determina automáticamente el tipo de dato según el valor que se le asigna.
+* Una variable puede **cambiar de tipo** durante la ejecución del programa.
+
+👉 Ejemplo:
+
+```python
+nombre = "Lucía"      # str (cadena de texto)
+edad = 21             # int (entero)
+altura = 1.75         # float (decimal)
+es_estudiante = True  # bool (booleano)
+
+edad = "veintiuno"    # ahora la variable edad contiene un string
+```
+
+🔍 **Buenas prácticas al nombrar variables**:
+
+* No usar espacios (emplear guiones bajos: `mi_variable`).
+* No empezar con números (`2dato` ❌, `dato2` ✔).
+* Evitar nombres muy genéricos como `x`, `dato`, salvo en ejemplos matemáticos.
+* Seguir la convención **snake\_case** en Python: `nombre_completo`.
+
+---
+
+## 🔢 Tipos de datos básicos en Python
+
+Python incluye varios **tipos de datos primitivos**, fundamentales para cualquier programa:
+
+* **`str` (string)** → Texto, definido entre comillas simples `'` o dobles `"`.
+
+  ```python
+  curso = "Programación en Python"
+  ```
+
+  📌 Pueden incluir letras, números, espacios y símbolos.
+
+* **`int` (integer)** → Números enteros, positivos o negativos, sin decimales.
+
+  ```python
+  anio = 2025
+  ```
+
+* **`float`** → Números con decimales (punto decimal).
+
+  ```python
+  temperatura = 22.5
+  ```
+
+  📌 En cálculos científicos y financieros, los `float` son muy usados.
+
+* **`bool` (boolean)** → Solo puede ser `True` o `False`.
+
+  ```python
+  conectado = False
+  ```
+
+  📌 Son muy útiles para condiciones y estructuras de control (if/else).
+
+💡 Nota: Python también tiene otros tipos de datos más complejos (listas, tuplas, diccionarios), que veremos más adelante.
+
+👉 Dato curioso: los booleanos son en realidad una extensión de los enteros:
+
+```python
+print(True + True)   # 2
+print(False + 5)     # 5
+```
+
+---
+
+## ➕ Operadores aritméticos
+
+Los operadores permiten realizar **cálculos matemáticos** con variables o números.
+
+* `+` → **suma**
+* `-` → **resta**
+* `*` → **multiplicación**
+* `/` → **división** (devuelve un `float`, incluso si es exacta)
+* `//` → **división entera** (descarta los decimales y redondea hacia abajo)
+* `%` → **módulo** (resto de la división)
+* `**` → **potencia**
+
+👉 Ejemplo:
+
+```python
+a = 10
+b = 3
+
+print(a + b)   # 13
+print(a - b)   # 7
+print(a * b)   # 30
+print(a / b)   # 3.333...
+print(a // b)  # 3
+print(a % b)   # 1
+print(a ** b)  # 1000
+```
+
+🔍 Detalles importantes:
+
+* La división `/` siempre devuelve un número decimal (`float`).
+* El operador `%` es útil para saber si un número es **par o impar** (`n % 2 == 0`).
+* La potencia `**` se usa mucho en cálculos matemáticos, por ejemplo, para elevar al cuadrado o cubo.
+
+---
+
+## 📝 Operadores de asignación
+
+Los **operadores de asignación** permiten **dar valores a variables** y, en algunos casos, realizar operaciones al mismo tiempo.
+
+* `=` → asigna un valor.
+* `+=` → suma y asigna.
+* `-=` → resta y asigna.
+* `*=` → multiplica y asigna.
+* `/=` → divide y asigna.
+
+👉 Ejemplo:
+
+```python
+x = 5     # asignación
+x += 3    # x = x + 3 → ahora x vale 8
+x -= 2    # x = x - 2 → ahora x vale 6
+x *= 4    # x = x * 4 → ahora x vale 24
+x /= 6    # x = x / 6 → ahora x vale 4.0
+```
+
+📌 Estos atajos hacen el código más **compacto y legible**.
+
+---
+
+## 🖥️ Ejercicio guiado
+
+Crea un script llamado **`datos_usuario.py`** que:
+
+1. Guarde en variables tu **nombre**, **edad**, **altura** y si estás estudiando (`True/False`).
+2. Muestre en pantalla un mensaje como:
+
+```
+Me llamo Carla, tengo 19 años, mido 1.68 y actualmente estudio: True
+```
+
+👉 Usa **f-strings** para combinar texto y variables.
+
+Ejemplo de código:
+
+```python
+nombre = "Carla"
+edad = 19
+altura = 1.68
+es_estudiante = True
+
+print(f"Me llamo {nombre}, tengo {edad} años, mido {altura} y actualmente estudio: {es_estudiante}")
+```
+
+---
+
+## 💡 Ejercicio entregar
+
+Crea un script llamado **`calculadora_simple.py`** que:
+
+* Tenga dos variables `num1` y `num2`.
+* Calcule y muestre: suma, resta, multiplicación, división, módulo y potencia.
+
+👉 Ejemplo de salida:
+
+```
+Suma: 15
+Resta: 5
+Multiplicación: 50
+División: 2.0
+Módulo: 0
+Potencia: 100000
+```
+
+Ejemplo de código:
+
+```python
+num1 = 10
+num2 = 5
+
+print(f"Suma: {num1 + num2}")
+print(f"Resta: {num1 - num2}")
+print(f"Multiplicación: {num1 * num2}")
+print(f"División: {num1 / num2}")
+print(f"Módulo: {num1 % num2}")
+print(f"Potencia: {num1 ** num2}")
+```
+
+---
+
+## ➡️ RA1. ce1
+
+Se ha utilizado correctamente la **sintaxis básica de Python**, aplicando de forma adecuada **variables, tipos de datos y operadores aritméticos** en problemas simples.
+
+---

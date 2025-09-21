@@ -1,0 +1,127 @@
+
+---
+
+# 🔹 Unidad 1.3 – Operadores de comparación y lógicos
+
+## 🎯 Objetivos de aprendizaje
+
+• Comprender cómo comparar valores en Python.
+• Aprender a combinar condiciones con operadores lógicos.
+• Resolver problemas simples que requieran toma de decisiones.
+
+---
+
+## ⚖️ Operadores de comparación
+
+Los **operadores de comparación** sirven para evaluar relaciones entre dos valores.
+
+* Su resultado **siempre es un valor booleano**: `True` o `False`.
+* Son muy utilizados dentro de condicionales (`if`, `while`) para controlar el flujo de ejecución.
+
+| Operador | Significado       | Ejemplo (`a=5, b=3`) | Resultado |
+| -------- | ----------------- | -------------------- | --------- |
+| `==`     | Igual a           | `a == b`             | False     |
+| `!=`     | Distinto de       | `a != b`             | True      |
+| `>`      | Mayor que         | `a > b`              | True      |
+| `<`      | Menor que         | `a < b`              | False     |
+| `>=`     | Mayor o igual que | `a >= 5`             | True      |
+| `<=`     | Menor o igual que | `b <= 3`             | True      |
+
+👉 Ejemplo en código:
+
+```python
+edad = 18
+print(edad >= 18)  # True
+print(edad < 16)   # False
+```
+
+📌 **Detalles importantes**:
+
+* El operador `==` compara valores, no si son el mismo objeto en memoria.
+* Para comprobar si dos variables apuntan al mismo objeto, existe el operador `is`.
+* Se pueden encadenar comparaciones en Python, algo que no todos los lenguajes permiten:
+
+  ```python
+  edad = 20
+  print(18 <= edad <= 30)  # True
+  ```
+
+---
+
+## 🔗 Operadores lógicos
+
+Los **operadores lógicos** permiten combinar varias condiciones. Son muy útiles cuando necesitamos que se cumpla más de una condición o, por el contrario, al menos una de ellas.
+
+| Operador | Significado                                               | Ejemplo               | Resultado |
+| -------- | --------------------------------------------------------- | --------------------- | --------- |
+| `and`    | Devuelve True si **todas** las condiciones son verdaderas | `(5 > 3) and (8 > 6)` | True      |
+| `or`     | Devuelve True si **al menos una** condición es verdadera  | `(5 > 10) or (3 < 8)` | True      |
+| `not`    | Invierte el valor lógico de una condición                 | `not (5 > 3)`         | False     |
+
+👉 Ejemplo en código:
+
+```python
+edad = 20
+saldo = 50
+
+puede_comprar = (edad >= 18) and (saldo >= 30)
+print(puede_comprar)  # True
+```
+
+📌 **Notas importantes**:
+
+* `and` exige que todas las condiciones sean verdaderas.
+* `or` basta con que una sola condición sea verdadera.
+* `not` niega un resultado: convierte `True` en `False` y viceversa.
+* Python evalúa de izquierda a derecha y **corta la evaluación** si ya puede decidir el resultado (short-circuit evaluation).
+
+---
+
+## 📝 Ejercicio guiado
+
+Crea un script **`comparaciones.py`** que:
+
+1. Guarde en variables: `nota = 7` y `asistencia = 85`.
+2. Verifique con un `if` si el alumno aprueba:
+
+   * Debe tener nota mayor o igual a 5 **y** asistencia mayor o igual a 80.
+3. Muestre un mensaje:
+
+   * `"Has aprobado"` si cumple ambas condiciones.
+   * `"No has aprobado"` en caso contrario.
+
+👉 Código de ejemplo:
+
+```python
+nota = 7
+asistencia = 85
+
+if (nota >= 5) and (asistencia >= 80):
+    print("Has aprobado")
+else:
+    print("No has aprobado")
+```
+
+---
+
+## 💡 Ejercicio entregar
+
+Crea un script **`login.py`** que:
+
+* Guarde en variables:
+
+  ```python
+  usuario_correcto = "admin"
+  contrasena_correcta = "1234"
+  ```
+* Pida al usuario con `input()` un nombre y contraseña.
+* Use operadores de comparación y lógicos para verificar:
+
+  * Si ambos coinciden → mostrar `"Acceso concedido"`.
+  * Si no → mostrar `"Acceso denegado"`.
+
+---
+
+## ➡️ RA1. ce2
+
+Se han empleado **operadores de comparación** (`==, !=, <, >`) y **lógicos** (`and, or, not`) correctamente en las estructuras condicionales y bucles.

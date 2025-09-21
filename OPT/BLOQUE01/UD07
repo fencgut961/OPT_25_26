@@ -1,0 +1,165 @@
+
+---
+
+# 🔹 Unidad 1.7 – Buenas prácticas y documentación
+
+## 🎯 Objetivos de aprendizaje
+
+• Aprender a escribir **código legible y mantenible**.
+• Conocer la importancia de los **comentarios y la documentación**.
+• Aplicar las **convenciones de estilo (PEP 8)**.
+• Evitar errores comunes como la **falta de indentación**.
+
+---
+
+## 📝 Comentarios en Python
+
+Los **comentarios** ayudan a que el código sea más fácil de entender, tanto para otros programadores como para ti mismo en el futuro.
+👉 El intérprete de Python los ignora, pero son esenciales en proyectos reales.
+
+### 📌 Tipos de comentarios
+
+* **Comentario de una sola línea**:
+
+```python
+# Esto es un comentario
+print("Hola")  # También se puede escribir al final de una línea
+```
+
+* **Comentarios multilínea o docstrings**:
+  Se escriben entre `""" ... """` y suelen usarse para explicar un programa, una función o una clase.
+
+```python
+"""
+Este programa calcula el área de un rectángulo.
+El usuario introduce la base y la altura,
+y se muestra el resultado.
+"""
+```
+
+👉 Los **docstrings** no solo sirven como comentario, sino que Python los reconoce y se pueden consultar con la función `help()` o con herramientas de documentación automática.
+
+---
+
+## 📚 Indentación en Python
+
+La **indentación** define los bloques de código.
+
+* En otros lenguajes (como Java o C++) se usan llaves `{}`, pero en Python **los espacios son obligatorios**.
+* Si no se respeta, se genera un **error de sintaxis**.
+
+### 📌 Ejemplo correcto ✅:
+
+```python
+edad = 20
+if edad >= 18:
+    print("Eres mayor de edad")
+```
+
+### 📌 Ejemplo incorrecto ❌ (error de indentación):
+
+```python
+edad = 20
+if edad >= 18:
+print("Eres mayor de edad")  # Esto generará un error
+```
+
+➡️ **Regla general:** usar **4 espacios por nivel de indentación** (los editores modernos como IntelliJ, VS Code o PyCharm lo hacen automáticamente).
+
+🔍 Consejo: nunca mezcles **tabuladores y espacios**, porque puede provocar errores invisibles.
+
+---
+
+## 📖 Convenciones de estilo (PEP 8)
+
+La **PEP 8** es la guía de estilo oficial de Python. Su objetivo es que todos los programadores escriban código con una apariencia uniforme, lo que facilita la lectura y colaboración.
+
+### 📌 Reglas básicas:
+
+* **Variables y funciones** → usar `snake_case` (minúsculas con guiones bajos):
+
+```python
+nombre_usuario = "Carlos"
+def calcular_total():
+    ...
+```
+
+* **Constantes** → en mayúsculas:
+
+```python
+PI = 3.14159
+MAX_INTENTOS = 3
+```
+
+* **Espacios alrededor de operadores**:
+
+```python
+suma = 3 + 5  # Correcto
+suma=3+5      # Incorrecto
+```
+
+* **Líneas cortas** → máximo 79 caracteres por línea (para mejorar legibilidad en cualquier editor).
+
+* **Nombres descriptivos**: evita usar variables como `x` o `y` salvo en ejemplos matemáticos.
+
+---
+
+## 📚 Ejemplo práctico
+
+Un mismo programa con y sin buenas prácticas:
+
+❌ **Sin buenas prácticas**:
+
+```python
+x=10;y=20;z=x+y;print("resultado:",z)
+```
+
+✅ **Con buenas prácticas (PEP 8 + comentarios)**:
+
+```python
+# Este programa suma dos números
+x = 10
+y = 20
+z = x + y
+print("Resultado:", z)
+```
+
+➡️ La segunda versión es más clara, fácil de leer y mantener.
+
+---
+
+## 📝 Ejercicio guiado
+
+Crea un script **`saludo_documentado.py`** que:
+
+1. Pida el nombre al usuario.
+2. Use un **docstring** al inicio para explicar qué hace el programa.
+3. Use **comentarios** para explicar cada paso.
+4. Muestre el saludo en pantalla.
+
+👉 Ejemplo de salida:
+
+```
+Introduce tu nombre: Laura
+Hola, Laura! Bienvenida a Python
+```
+
+---
+
+## 💡 Ejercicio entregar
+
+Reescribe tu script **`tabla_multiplicar.py`** (hecho en la unidad 1.5) aplicando:
+
+* **Docstring al inicio**.
+* **Comentarios** en las partes importantes.
+* **Nombres de variables siguiendo PEP 8**.
+
+---
+
+## ➡️ RA1. ce5
+
+Se han seguido buenas prácticas de **organización y documentación del código**, aplicando indentación adecuada, comentarios claros y convenciones de estilo para mejorar la legibilidad y mantenimiento de los programas.
+
+---
+
+👉 Te propongo que para reforzar esta unidad, en la siguiente (1.8) incorporemos la **gestión de errores (try, except)**, porque está muy relacionada con la escritura de código robusto y mantenible. ¿Quieres que la prepare también con teoría ampliada y ejemplos?

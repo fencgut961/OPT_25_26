@@ -1,0 +1,151 @@
+¡Genial! 🚀
+
+---
+
+# 🔹 Unidad 1.6 – Control de bucles (break, continue)
+
+## 🎯 Objetivos de aprendizaje
+
+• Comprender cómo detener un bucle con **break**.
+• Aprender a **saltar iteraciones** con **continue**.
+• Aplicar estas instrucciones en ejercicios prácticos.
+
+---
+
+## ⛔ break – Detener el bucle
+
+La sentencia **`break`** se usa para **interrumpir un bucle de manera inmediata**.
+
+* El bucle finaliza aunque todavía queden elementos por recorrer o la condición siga siendo verdadera.
+* Se utiliza cuando ya hemos encontrado lo que buscábamos y no necesitamos seguir iterando.
+
+📌 **Ejemplo 1: buscar un nombre en una lista**
+
+```python
+nombres = ["Ana", "Luis", "Carlos"]
+
+for nombre in nombres:
+    if nombre == "Luis":
+        print("¡Luis encontrado!")
+        break
+```
+
+➡️ El bucle se detiene en cuanto encuentra `"Luis"`.
+
+📌 **Ejemplo 2: detener un while con break**
+
+```python
+contador = 1
+while True:  # bucle infinito
+    print(contador)
+    if contador == 5:
+        print("He llegado al 5, detengo el bucle")
+        break
+    contador += 1
+```
+
+➡️ Se imprime hasta 5 y luego termina el bucle.
+
+---
+
+## 🔄 continue – Saltar una iteración
+
+La sentencia **`continue`** hace que el programa **ignore el resto del bloque actual** y pase directamente a la siguiente iteración del bucle.
+
+* Es útil cuando queremos **omitir ciertos casos** sin detener todo el bucle.
+
+📌 **Ejemplo 1: mostrar solo números impares**
+
+```python
+for i in range(1, 6):
+    if i % 2 == 0:
+        continue
+    print(f"Número impar: {i}")
+```
+
+➡️ El programa se salta los pares y solo imprime los impares.
+
+📌 **Ejemplo 2: saltar contraseñas vacías**
+
+```python
+contrasenas = ["1234", "", "python", "admin"]
+
+for c in contrasenas:
+    if c == "":
+        continue
+    print(f"Contraseña válida: {c}")
+```
+
+➡️ Solo imprime las contraseñas que no estén vacías.
+
+---
+
+## ⚖️ Diferencia entre break y continue
+
+* `break` → **rompe el bucle por completo**.
+* `continue` → **salta la iteración actual** y sigue con la siguiente.
+
+📌 **Ejemplo comparativo**
+
+```python
+for i in range(1, 6):
+    if i == 3:
+        break   # termina en 3
+    print(i)
+```
+
+➡️ Resultado: `1, 2`
+
+```python
+for i in range(1, 6):
+    if i == 3:
+        continue   # salta el 3
+    print(i)
+```
+
+➡️ Resultado: `1, 2, 4, 5`
+
+---
+
+## 📝 Ejercicio guiado — buscador\_numero.py
+
+Crea un script que:
+
+1. Recorra los números del 1 al 20 usando un bucle `for`.
+2. Muestre cada número en la consola.
+3. Si encuentra el número **13**, debe mostrar el mensaje `"Número encontrado"` y detener el bucle con **break**.
+
+👉 **Pista:** usa una condición `if` dentro del bucle y coloca `break` cuando se cumpla.
+
+---
+
+## 📝 Reto a entregar — filtrar\_lista.py
+
+Crea un script que:
+
+1. Defina una lista con al menos **6 nombres**.
+2. Recorra la lista con un bucle `for`.
+3. Use **continue** para saltar los nombres que empiezan por la letra `"A"` (mayúscula o minúscula).
+4. Muestre en pantalla solo los nombres que no empiecen por `"A"`.
+5. Añada un **docstring** explicando el propósito del programa y comentarios en las partes importantes del código.
+
+📌 **Ejemplo de entrada/salida:**
+
+```python
+lista = ["Ana", "Pedro", "Alba", "Lucía"]
+```
+
+➡️ Resultado:
+
+```
+Pedro
+Lucía
+```
+
+---
+
+## ➡️ RA1. ce4
+
+Se han utilizado correctamente los bucles `for` y `while` para iterar sobre secuencias y controlar la repetición de tareas, incluyendo el uso de **`break`** y **`continue`** para modificar el flujo de ejecución.
+
+---

@@ -1,0 +1,216 @@
+
+---
+
+# 🔹 Unidad 1.5 – Bucles: for y while
+
+## 🎯 Objetivos de aprendizaje
+
+• Comprender el concepto de **repetición** en programación.
+• Usar el bucle **for** para recorrer secuencias.
+• Usar el bucle **while** cuando no sabemos de antemano cuántas repeticiones necesitaremos.
+• Practicar con ejemplos aplicados.
+
+---
+
+## 🔄 Bucle for
+
+El bucle `for` se utiliza para **recorrer elementos de una secuencia** (listas, cadenas, rangos de números, etc.).
+
+* Repite el bloque de código tantas veces como elementos tenga la secuencia.
+* En cada iteración, la variable del bucle toma un valor distinto de la secuencia.
+
+📌 **Ejemplo 1: lista de nombres**
+
+```python
+nombres = ["Ana", "Luis", "Carlos"]
+
+for nombre in nombres:
+    print(f"Hola {nombre}")
+```
+
+➡️ Resultado:
+
+```
+Hola Ana
+Hola Luis
+Hola Carlos
+```
+
+📌 **Ejemplo 2: usar range()**
+
+```python
+for i in range(5):
+    print(f"Iteración {i}")
+```
+
+➡️ Resultado:
+
+```
+Iteración 0
+Iteración 1
+Iteración 2
+Iteración 3
+Iteración 4
+```
+
+👉 `range()` puede recibir hasta **tres argumentos**:
+
+* `range(n)` → de 0 a `n-1`.
+* `range(inicio, fin)` → desde `inicio` hasta `fin-1`.
+* `range(inicio, fin, paso)` → con un incremento específico.
+
+📌 **Ejemplo con paso personalizado**
+
+```python
+for i in range(2, 11, 2):
+    print(i)
+```
+
+➡️ Resultado:
+
+```
+2
+4
+6
+8
+10
+```
+
+🔍 El bucle `for` en Python es muy flexible: también puede recorrer **strings** o incluso **diccionarios**.
+
+```python
+for letra in "Python":
+    print(letra)
+```
+
+➡️ Resultado:
+
+```
+P
+y
+t
+h
+o
+n
+```
+
+---
+
+## 🔄 Bucle while
+
+El bucle `while` repite un bloque de código **mientras la condición sea verdadera**.
+
+* Se usa cuando **no sabemos cuántas veces se repetirá** la acción.
+* El número de iteraciones dependerá de que la condición cambie en algún momento.
+
+📌 **Ejemplo 1: contar números**
+
+```python
+contador = 1
+
+while contador <= 5:
+    print(f"Número: {contador}")
+    contador += 1
+```
+
+➡️ Resultado:
+
+```
+Número: 1
+Número: 2
+Número: 3
+Número: 4
+Número: 5
+```
+
+⚠️ **¡Cuidado!**
+Si la condición nunca se vuelve `False`, el bucle se repetirá indefinidamente (**bucle infinito**).
+Para evitarlo:
+
+* Asegúrate de que la condición cambie en cada iteración.
+* En caso de error, puedes detener el programa con **Ctrl + C** en la consola.
+
+📌 **Ejemplo 2: pedir contraseña hasta que sea correcta**
+
+```python
+password = ""
+while password != "python123":
+    password = input("Introduce la contraseña: ")
+
+print("Acceso concedido ✅")
+```
+
+---
+
+## 📚 Ejemplo práctico
+
+**Sumar los primeros 10 números**:
+
+```python
+suma = 0
+
+for i in range(1, 11):
+    suma += i
+
+print(f"La suma de los primeros 10 números es {suma}")
+```
+
+➡️ Resultado:
+
+```
+La suma de los primeros 10 números es 55
+```
+
+---
+
+## 📝 Ejercicio guiado
+
+Crea un script **`tabla_multiplicar.py`** que:
+
+1. Pida un número al usuario.
+2. Use un bucle `for` para mostrar su tabla de multiplicar del 1 al 10.
+
+👉 Ejemplo de ejecución:
+
+```
+Introduce un número: 7
+7 x 1 = 7
+7 x 2 = 14
+...
+7 x 10 = 70
+```
+
+---
+
+## 💡 Ejercicio entregar
+
+Crea un script **`contador_regresivo.py`** que:
+
+* Pida un número al usuario.
+* Use un bucle `while` para contar desde ese número hasta 0.
+* Al final muestre: `"¡Despegue!"`.
+
+👉 Ejemplo de salida:
+
+```
+Introduce un número: 5
+5
+4
+3
+2
+1
+0
+¡Despegue!
+```
+
+---
+
+## ➡️ RA1. ce4
+
+Se han utilizado correctamente los **bucles `for` y `while`** para iterar sobre secuencias y controlar la repetición de tareas.
+
+---
+
+👉 Te propongo una mejora: en esta unidad también se podría incluir la explicación de las **instrucciones `break` y `continue`**, ya que son clave para controlar bucles de manera avanzada.
+
+¿Quieres que las añada aquí como extensión teórica extra?
