@@ -1,0 +1,124 @@
+
+---
+
+# 🔹 Unidad 2.1 – Funciones: definición
+
+## 🎯 Objetivos de aprendizaje
+
+• Comprender **qué es una función** en programación.
+• Identificar las **ventajas** de dividir un programa en funciones.
+• Aprender la **sintaxis básica** de definición e invocación de funciones en Python.
+• Documentar una función usando **docstrings**.
+
+---
+
+## 📚 Explicación teórica
+
+Una **función** es un bloque de código que se **define una sola vez** y se puede **ejecutar (invocar) muchas veces**.
+
+Características principales:
+
+1. **Definición única** → se escribe una vez, pero se reutiliza varias veces.
+2. **Parámetros (opcional)** → datos que recibe para trabajar con ellos.
+3. **Valor de retorno (opcional)** → el resultado que entrega después de ejecutarse.
+4. **Reutilización** → se puede invocar desde diferentes partes del programa.
+
+👉 **Ventajas de usar funciones:**
+
+* Reutilización de código (no repetir instrucciones).
+* Organización y claridad (cada función resuelve un problema pequeño).
+* Facilita el mantenimiento (más fácil localizar errores).
+* Permite **colaboración en equipo**: distintos programadores trabajan en funciones separadas.
+* Hace posible la **modularidad** (dividir un programa grande en piezas pequeñas).
+
+---
+
+## 📌 Sintaxis básica
+
+```python
+def nombre_de_la_funcion():
+    """
+    Docstring: Explica lo que hace la función.
+    """
+    # bloque de instrucciones
+```
+
+🔎 Elementos clave:
+
+* `def` → palabra reservada para definir funciones.
+* `nombre_de_la_funcion` → debe ser **descriptivo**, en formato *snake\_case*.
+* `()` → paréntesis para incluir parámetros (pueden estar vacíos).
+* `:` → indica el inicio del bloque.
+* **Indentación** → obligatorio (4 espacios por nivel).
+* **Docstring** → texto entre `""" """` que explica qué hace la función.
+
+---
+
+## 💻 Ejemplos prácticos
+
+### Ejemplo 1 — Función simple sin parámetros
+
+```python
+def saludar():
+    """Muestra un saludo en pantalla."""
+    print("¡Hola! Bienvenido a Python.")
+
+# Llamada a la función
+saludar()
+```
+
+🔎 Al invocar `saludar()`, se ejecuta el bloque de instrucciones dentro de la función.
+
+---
+
+### Ejemplo 2 — Función con docstring y comentarios
+
+```python
+def mostrar_menu():
+    """
+    Muestra un menú de opciones simple.
+    No recibe parámetros ni devuelve valores.
+    """
+    print("1. Sumar")
+    print("2. Restar")
+    print("3. Salir")
+
+# Invocar la función dos veces
+mostrar_menu()
+mostrar_menu()
+```
+
+🔎 Aquí vemos la **reutilización**: en lugar de repetir el código, se llama dos veces a la misma función.
+
+---
+
+## 📝 Actividad guiada — `saludos.py`
+
+1. Define una función llamada `mostrar_saludo()`.
+2. Dentro de la función, imprime:
+   `"Hola, este es tu primer programa con funciones."`.
+3. Añade un **docstring** explicando qué hace la función.
+4. Llama a la función varias veces desde el programa principal.
+
+👉 Objetivo: practicar la sintaxis de `def` y comprobar cómo se reutiliza el código.
+
+---
+
+## 💡 Reto a entregar — `menu_principal.py`
+
+1. Crea un script con una función `mostrar_menu()`.
+2. La función debe mostrar un menú con al menos 3 opciones (ejemplo: *“1. Jugar”*, *“2. Configuración”*, *“3. Salir”*).
+3. Añade un **docstring** explicando qué hace la función.
+4. Desde el programa principal, llama a `mostrar_menu()` dos veces (simulando que el menú aparece de nuevo).
+5. Asegúrate de seguir las **normas de estilo PEP 8**.
+
+---
+
+## 📌 Relación con RA
+
+* **RA2. ce1 (a)** → Se han definido funciones correctamente con parámetros y valores de retorno, respetando la modularidad y la reutilización del código.
+* **RA2. ce2 (b)** → Se ha organizado el código utilizando funciones para evitar repeticiones y mejorar la claridad del programa.
+
+---
+
+👉 ¿Quieres que en la **Unidad 2.2** avancemos ya a funciones **con parámetros** para que los alumnos empiecen a enviar datos a las funciones?
