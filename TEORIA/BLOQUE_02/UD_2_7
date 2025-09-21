@@ -1,0 +1,172 @@
+
+---
+
+# 🔹 Unidad 2.7 – Diccionarios
+
+## 🎯 Objetivos de aprendizaje
+
+• Comprender qué es un diccionario en Python y sus características.
+• Crear diccionarios y acceder a sus elementos.
+• Aprender a modificar, añadir y eliminar pares clave–valor.
+• Usar los métodos principales de los diccionarios.
+
+---
+
+## 📚 Explicación teórica
+
+Un **diccionario** es una **colección no ordenada y mutable** que almacena **pares clave–valor**.
+
+### ✅ Características principales
+
+* Se definen con **llaves `{}`**.
+* Cada elemento tiene una **clave única** y un **valor asociado**.
+* Las claves deben ser **inmutables** (números, cadenas o tuplas).
+* Los valores pueden ser de cualquier tipo: números, listas, diccionarios, objetos, etc.
+* Son muy útiles para representar entidades con propiedades (ejemplo: una persona con nombre, edad, ciudad).
+
+---
+
+### 📌 Creación de diccionarios
+
+```python
+vacio = {}
+persona = {"nombre": "Ana", "edad": 25, "ciudad": "Madrid"}
+```
+
+---
+
+### 📌 Acceso a valores
+
+```python
+print(persona["nombre"])     # Ana
+print(persona.get("edad"))   # 25
+print(persona.get("profesion", "No especificada"))  # valor por defecto
+```
+
+---
+
+### 📌 Modificación y adición
+
+```python
+persona["edad"] = 26             # modifica un valor existente
+persona["profesion"] = "Médico"  # añade una nueva clave
+```
+
+---
+
+### 📌 Eliminación
+
+```python
+del persona["ciudad"]         # elimina clave "ciudad"
+valor = persona.pop("edad")   # elimina y devuelve el valor
+```
+
+---
+
+## 📚 Métodos principales
+
+* **.keys()** → devuelve todas las claves.
+* **.values()** → devuelve todos los valores.
+* **.items()** → devuelve pares clave–valor (ideal para recorrer con bucles).
+* **.update({...})** → actualiza el diccionario con nuevas claves/valores.
+* **.clear()** → vacía el diccionario.
+
+---
+
+## 💻 Ejemplos prácticos
+
+### Ejemplo 1 — recorrido de diccionario
+
+```python
+alumno = {"nombre": "Carlos", "nota": 8, "aprobado": True}
+
+for clave, valor in alumno.items():
+    print(clave, ":", valor)
+```
+
+---
+
+### Ejemplo 2 — uso de `.get()` con valor por defecto
+
+```python
+print(alumno.get("edad", "No especificada"))  # No especificada
+```
+
+---
+
+### Ejemplo 3 — diccionarios anidados
+
+```python
+agenda = {
+    "Ana": {"telefono": 1111, "email": "ana@mail.com"},
+    "Luis": {"telefono": 2222, "email": "luis@mail.com"}
+}
+
+print(agenda["Ana"]["email"])  # ana@mail.com
+```
+
+---
+
+### Ejemplo 4 — conversión entre diccionarios y listas de tuplas
+
+```python
+pares = [("a", 1), ("b", 2), ("c", 3)]
+diccionario = dict(pares)
+print(diccionario)  # {'a': 1, 'b': 2, 'c': 3}
+```
+
+---
+
+## 📝 Actividad guiada — `diccionario_persona.py`
+
+1. Crea un diccionario `persona` con las claves: **nombre, edad, ciudad**.
+2. Muestra el valor de cada clave.
+3. Añade una nueva clave `profesion` con su valor.
+4. Elimina la clave `ciudad`.
+5. Recorre el diccionario mostrando clave y valor en cada línea.
+
+---
+
+## 📝 Reto a entregar — `agenda.py`
+
+1. Crea un diccionario vacío llamado `agenda`.
+2. Pide al usuario que introduzca 3 contactos (**nombre y teléfono**).
+
+   * El nombre será la **clave**.
+   * El teléfono será el **valor**.
+3. Muestra la agenda completa usando un bucle.
+4. Permite al usuario buscar un contacto por nombre:
+
+   * Si existe, muestra el teléfono.
+   * Si no existe, muestra **"Contacto no encontrado"**.
+5. Añade un **docstring** explicando qué hace el programa.
+
+📌 Ejemplo de salida:
+
+```
+Introduce nombre: Ana
+Introduce teléfono: 1111
+Introduce nombre: Luis
+Introduce teléfono: 2222
+Introduce nombre: Marta
+Introduce teléfono: 3333
+
+Agenda completa:
+Ana : 1111
+Luis : 2222
+Marta : 3333
+
+Buscar contacto: Marta
+Teléfono: 3333
+```
+
+---
+
+## 📌 Relación con RA
+
+* **RA2. ce3 (c)** → Se han manipulado correctamente listas, tuplas y diccionarios, creando, accediendo y modificando elementos en estas estructuras.
+* **RA2. ce4 (d)** → Se han utilizado las estructuras de datos adecuadas (listas, tuplas, diccionarios) según la naturaleza del problema y la eficiencia del código.
+* **RA2. ce5 (e)** → Se han utilizado métodos avanzados para trabajar con colecciones, como la comprensión de listas y funciones de ordenación, mejorando la eficiencia del programa.
+
+---
+

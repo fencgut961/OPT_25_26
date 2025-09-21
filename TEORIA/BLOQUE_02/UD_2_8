@@ -1,0 +1,157 @@
+
+---
+
+# 🔹 Unidad 2.8 – Comprensiones de listas y métodos avanzados de colecciones
+
+## 🎯 Objetivos de aprendizaje
+
+• Conocer los métodos más avanzados de listas y diccionarios.
+• Aprender qué son las comprensiones de listas y para qué sirven.
+• Simplificar código repetitivo mediante expresiones compactas.
+• Practicar con ejercicios prácticos que combinen colecciones y bucles.
+
+---
+
+## 📚 Explicación teórica
+
+### 📌 Métodos avanzados de listas
+
+Las listas en Python cuentan con funciones útiles para procesar datos rápidamente:
+
+* **sort(reverse=True)** → ordena de mayor a menor.
+* **sorted(lista)** → devuelve una **nueva lista** ordenada (no modifica la original).
+* **max(lista)** y **min(lista)** → devuelven el máximo y mínimo.
+* **sum(lista)** → devuelve la suma de todos los elementos (si son numéricos).
+
+Ejemplo:
+
+```python
+numeros = [3, 7, 1, 9, 2]
+print(sorted(numeros))      # [1, 2, 3, 7, 9]
+print(max(numeros))         # 9
+print(min(numeros))         # 1
+print(sum(numeros))         # 22
+```
+
+---
+
+### 📌 Métodos avanzados de diccionarios
+
+* **.get(clave, valor\_defecto)** → devuelve el valor si existe, o un valor por defecto si no.
+* **.setdefault(clave, valor)** → añade la clave con un valor si no existe.
+* **.update({...})** → actualiza varias claves a la vez.
+
+Ejemplo:
+
+```python
+persona = {"nombre": "Ana", "edad": 25}
+print(persona.get("ciudad", "No especificada"))  
+
+persona.setdefault("profesion", "Estudiante")
+print(persona)  # {'nombre': 'Ana', 'edad': 25, 'profesion': 'Estudiante'}
+
+persona.update({"edad": 26, "ciudad": "Madrid"})
+print(persona)  # {'nombre': 'Ana', 'edad': 26, 'profesion': 'Estudiante', 'ciudad': 'Madrid'}
+```
+
+---
+
+### 📚 Comprensiones de listas
+
+Las **comprensiones de listas** permiten construir nuevas listas de forma **concisa y expresiva**.
+
+📌 **Sintaxis general**
+
+```python
+[expresion for elemento in iterable if condicion]
+```
+
+✅ Ejemplo tradicional vs comprensión:
+
+```python
+# Método tradicional
+cuadrados = []
+for n in range(1, 6):
+    cuadrados.append(n ** 2)
+
+# Con comprensión
+cuadrados = [n ** 2 for n in range(1, 6)]
+print(cuadrados)  # [1, 4, 9, 16, 25]
+```
+
+✅ Con condición:
+
+```python
+pares = [n for n in range(10) if n % 2 == 0]
+print(pares)  # [0, 2, 4, 6, 8]
+```
+
+👉 También se pueden aplicar a **diccionarios**:
+
+```python
+cuadrados = {n: n ** 2 for n in range(1, 6)}
+print(cuadrados)  # {1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
+```
+
+---
+
+## 💻 Ejemplos prácticos
+
+### Ejemplo 1 — lista de longitudes
+
+```python
+palabras = ["Python", "programación", "lista"]
+longitudes = [len(p) for p in palabras]
+print(longitudes)  # [6, 12, 5]
+```
+
+### Ejemplo 2 — filtrar nombres
+
+```python
+nombres = ["Ana", "Alba", "Luis", "Pedro"]
+sin_a = [n for n in nombres if not n.startswith("A")]
+print(sin_a)  # ['Luis', 'Pedro']
+```
+
+### Ejemplo 3 — comprensión con condicional ternario
+
+```python
+numeros = [1, 2, 3, 4, 5]
+etiquetas = ["par" if n % 2 == 0 else "impar" for n in numeros]
+print(etiquetas)  # ['impar', 'par', 'impar', 'par', 'impar']
+```
+
+---
+
+## 📝 Actividad guiada — `comprension_basica.py`
+
+1. Genera una lista con los números del 1 al 10 elevados al cuadrado usando comprensión de listas.
+2. Genera otra lista con los números pares entre 1 y 20 usando comprensión de listas.
+3. Crea un diccionario que relacione cada número del 1 al 5 con su cubo usando comprensión de diccionarios.
+
+---
+
+## 📝 Reto a entregar — `analisis_numeros.py`
+
+Crea un programa que:
+
+1. Genere una lista de 20 números enteros (pueden ser introducidos manualmente o generados con `range`).
+2. Obtenga mediante comprensiones de listas:
+
+   * Una lista con los cuadrados de todos los números.
+   * Una lista con solo los números pares.
+   * Una lista con los números mayores que 10.
+3. Cree un diccionario que relacione cada número con su doble.
+4. Muestre en pantalla todos los resultados.
+5. Incluya un **docstring** explicando qué hace el programa.
+
+---
+
+## 📌 Relación con RA
+
+1. **RA2. ce3 (c)** → Se han manipulado correctamente listas, tuplas y diccionarios, creando, accediendo y modificando elementos en estas estructuras.
+2. **RA2. ce4 (d)** → Se han utilizado las estructuras de datos adecuadas (listas, tuplas, diccionarios) según la naturaleza del problema y la eficiencia del código.
+3. **RA2. ce5 (e)** → Se han utilizado métodos avanzados para trabajar con colecciones, como la comprensión de listas y funciones de ordenación, mejorando la eficiencia del programa.
+
+---
+

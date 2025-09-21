@@ -1,0 +1,138 @@
+
+---
+
+# 🔹 Unidad 2.3 – Funciones con valores de retorno
+
+## 🎯 Objetivos de aprendizaje
+
+• Comprender qué es el **valor de retorno** en una función.
+• Diferenciar entre funciones que **devuelven un valor** y funciones que no devuelven nada (`None`).
+• Usar `return` para enviar resultados al programa principal.
+• Practicar el diseño de funciones que **resuelven una tarea concreta** y entregan un resultado reutilizable.
+
+---
+
+## 📚 Explicación teórica
+
+Hasta ahora, hemos visto funciones que muestran resultados directamente con `print()`.
+Pero en programación real, lo más útil es que las funciones **devuelvan valores**, ya que así se pueden reutilizar en cálculos más complejos.
+
+🔑 Conceptos clave:
+
+* **`return`** → finaliza la ejecución de la función y devuelve un resultado al punto donde fue llamada.
+* Si no hay `return`, la función devuelve automáticamente `None` (un valor especial en Python que significa "nada").
+* Una función debe estar diseñada para:
+
+  1. **Resolver una sola tarea.**
+  2. **Devolver un único resultado principal.**
+
+👉 Diferencia importante:
+
+* Una función con `print()` solo muestra en pantalla.
+* Una función con `return` entrega el valor para que el programa lo use.
+
+---
+
+### 📌 Sintaxis básica con `return`
+
+```python
+def nombre_funcion(parametros):
+    """Docstring: Explica qué devuelve la función."""
+    # bloque de instrucciones
+    return resultado
+```
+
+---
+
+## 💻 Ejemplos prácticos
+
+### Ejemplo 1 — función que devuelve un valor
+
+```python
+def cuadrado(numero):
+    """Devuelve el cuadrado de un número."""
+    return numero ** 2
+
+resultado = cuadrado(5)
+print("El cuadrado es:", resultado)  # 25
+```
+
+---
+
+### Ejemplo 2 — función que no devuelve nada
+
+```python
+def mostrar_mensaje():
+    """Muestra un mensaje en pantalla, pero no devuelve nada."""
+    print("Hola, soy una función sin return.")
+
+respuesta = mostrar_mensaje()
+print("El valor devuelto es:", respuesta)  # None
+```
+
+---
+
+### Ejemplo 3 — combinar funciones con return
+
+```python
+def doble(n):
+    """Devuelve el doble de un número."""
+    return n * 2
+
+def triple(n):
+    """Devuelve el triple de un número."""
+    return n * 3
+
+numero = 4
+print("El doble es:", doble(numero))
+print("El triple es:", triple(numero))
+```
+
+---
+
+✅ **Buenas prácticas al usar return**:
+
+* Evita usar `print()` dentro de funciones si lo que quieres es **usar el resultado** en cálculos posteriores.
+* Una función puede tener varios `return`, pero en general es mejor tener **un único punto de salida**.
+* Usa **docstrings claros** que expliquen qué devuelve la función.
+
+---
+
+## 📝 Actividad guiada — `matematicas.py`
+
+1. Define una función `area_rectangulo(base, altura)` que devuelva el área del rectángulo.
+2. Define una función `perimetro_rectangulo(base, altura)` que devuelva el perímetro.
+3. Desde el programa principal, pide al usuario la base y la altura, y muestra:
+
+   * El área calculada.
+   * El perímetro calculado.
+
+👉 **Objetivo**: practicar funciones con un solo resultado devuelto.
+
+---
+
+## 📝 Reto a entregar — `calculadora.py`
+
+Crea un script que contenga **4 funciones separadas**:
+
+* `sumar(a, b)` → devuelve la suma.
+* `restar(a, b)` → devuelve la resta.
+* `multiplicar(a, b)` → devuelve la multiplicación.
+* `dividir(a, b)` → devuelve la división (**controlando la división por cero**).
+
+El programa principal debe:
+
+1. Pedir dos números al usuario.
+2. Llamar a cada función y mostrar los resultados.
+3. Incluir un **docstring explicativo** en cada función.
+4. Cumplir las normas de estilo **PEP 8**.
+
+---
+
+## 📌 Relación con RA
+
+* **RA2. ce1 (a)** → Se han definido funciones correctamente con parámetros y valores de retorno, respetando la modularidad y la reutilización del código.
+* **RA2. ce2 (b)** → Se ha organizado el código utilizando funciones para evitar repeticiones y mejorar la claridad del programa.
+
+---
+

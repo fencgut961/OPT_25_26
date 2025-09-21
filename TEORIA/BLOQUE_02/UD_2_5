@@ -1,0 +1,165 @@
+
+---
+
+# 🔹 Unidad 2.5 – Listas
+
+## 🎯 Objetivos de aprendizaje
+
+• Comprender qué es una lista en Python y para qué se utiliza.
+• Aprender a crear, acceder y modificar listas.
+• Usar los métodos más comunes de listas para añadir, eliminar y buscar elementos.
+• Diferenciar entre copia y referencia de listas.
+
+---
+
+## 📚 Explicación teórica
+
+Una **lista** en Python es una **colección ordenada y mutable** de elementos.
+
+### ✅ Características principales
+
+* Se definen con **corchetes `[]`**.
+* Pueden contener distintos tipos de datos (mezclados).
+* Son **ordenadas**, es decir, cada elemento tiene una posición (índice).
+* Son **mutables**: se pueden modificar, añadir o eliminar elementos después de crearse.
+* Soportan operaciones como **concatenación, repetición y pertenencia**.
+
+---
+
+### 📌 Creación de listas
+
+```python
+numeros = [1, 2, 3, 4, 5]       # lista de enteros
+mixta = ["Ana", 20, True, 3.5]  # mezcla de tipos
+vacia = []                      # lista vacía
+```
+
+---
+
+### 📌 Acceso por índice
+
+```python
+frutas = ["manzana", "pera", "plátano"]
+print(frutas[0])    # manzana (primer elemento)
+print(frutas[-1])   # plátano (último elemento)
+```
+
+---
+
+### 📌 Modificación de elementos
+
+```python
+frutas[1] = "naranja"   # cambia "pera" por "naranja"
+print(frutas)           # ['manzana', 'naranja', 'plátano']
+```
+
+---
+
+## 📚 Métodos principales de listas
+
+* **append(x)** → añade un elemento al final.
+* **insert(i, x)** → inserta en una posición concreta.
+* **extend(lista)** → añade los elementos de otra lista.
+* **remove(x)** → elimina la primera ocurrencia de un valor.
+* **pop(i)** → elimina el elemento en la posición `i` (o el último si no se indica).
+* **clear()** → vacía la lista.
+* **index(x)** → devuelve la posición del valor `x`.
+* **count(x)** → cuenta cuántas veces aparece `x`.
+* **sort()** → ordena la lista (ascendente por defecto).
+* **reverse()** → invierte el orden de los elementos.
+
+👉 Además, Python ofrece **operadores** para listas:
+
+* `+` (concatenar listas).
+* `*` (repetir listas).
+* `in` (verificar pertenencia de un elemento).
+
+---
+
+## 💻 Ejemplos prácticos
+
+### Ejemplo 1 — añadir y eliminar
+
+```python
+numeros = [10, 20, 30]
+numeros.append(40)
+print(numeros)   # [10, 20, 30, 40]
+
+numeros.pop(1)   # elimina el elemento en posición 1
+print(numeros)   # [10, 30, 40]
+```
+
+---
+
+### Ejemplo 2 — ordenación y búsqueda
+
+```python
+edades = [18, 25, 20, 22]
+edades.sort()
+print(edades)           # [18, 20, 22, 25]
+print(edades.index(20)) # posición 1
+```
+
+---
+
+### Ejemplo 3 — copiar listas (copia vs referencia)
+
+```python
+lista1 = [1, 2, 3]
+lista2 = lista1          # referencia, apuntan a lo mismo
+lista3 = lista1.copy()   # copia independiente
+
+lista2.append(4)
+print(lista1)  # [1, 2, 3, 4]
+print(lista3)  # [1, 2, 3]
+```
+
+---
+
+### Ejemplo 4 — pertenencia y concatenación
+
+```python
+frutas = ["manzana", "pera", "plátano"]
+
+print("pera" in frutas)       # True
+print("uva" not in frutas)    # True
+
+otras_frutas = ["sandía", "kiwi"]
+todas = frutas + otras_frutas
+print(todas)  # ['manzana', 'pera', 'plátano', 'sandía', 'kiwi']
+```
+
+---
+
+## 📝 Actividad guiada — `lista_frutas.py`
+
+1. Crea una lista con al menos 5 frutas.
+2. Muestra la primera y la última fruta.
+3. Cambia una fruta por otra.
+4. Añade una nueva fruta al final con `append()`.
+5. Elimina una fruta con `remove()`.
+6. Muestra la lista final en pantalla.
+
+---
+
+## 📝 Reto a entregar — `gestion_lista.py`
+
+Crea un programa que:
+
+1. Defina una lista vacía `compras`.
+2. Pida al usuario 5 productos y los añada a la lista con `append()`.
+3. Muestre la lista completa.
+4. Pida al usuario un producto a eliminar y lo quite con `remove()`.
+5. Muestre la lista ordenada alfabéticamente con `sort()`.
+6. Incluya un **docstring** explicando qué hace el programa.
+
+---
+
+## 📌 Relación con RA
+
+* **RA2. ce3 (c)** → Se han manipulado correctamente listas, tuplas y diccionarios, creando, accediendo y modificando elementos en estas estructuras.
+* **RA2. ce4 (d)** → Se han utilizado las estructuras de datos adecuadas (listas, tuplas, diccionarios) según la naturaleza del problema y la eficiencia del código.
+* **RA2. ce5 (e)** → Se han utilizado métodos avanzados para trabajar con colecciones, como la **comprensión de listas** y funciones de ordenación, mejorando la eficiencia del programa.
+
+---
+

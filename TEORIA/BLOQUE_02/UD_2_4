@@ -1,0 +1,166 @@
+
+---
+
+# 🔹 Unidad 2.4 – Funciones y ámbito (scope de variables)
+
+## 🎯 Objetivos de aprendizaje
+
+• Comprender la diferencia entre **variables locales** y **variables globales**.
+• Entender cómo funciona el **ámbito (scope)** de las variables dentro y fuera de las funciones.
+• Identificar y evitar errores comunes al trabajar con variables globales.
+• Aplicar **buenas prácticas** para mantener el código organizado y fácil de mantener.
+
+---
+
+## 📚 Explicación teórica
+
+En Python, el **ámbito** (scope) define **dónde** una variable es visible y puede usarse.
+
+### 📌 Tipos de ámbito en funciones
+
+#### 1. Variable local
+
+* Se declara **dentro de una función**.
+* Solo existe mientras la función se está ejecutando.
+* No puede usarse fuera de la función.
+
+```python
+def funcion():
+    mensaje = "Hola desde la función"  # variable local
+    print(mensaje)
+
+funcion()
+print(mensaje)  # ❌ Error: 'mensaje' no está definida
+```
+
+---
+
+#### 2. Variable global
+
+* Se declara **fuera de cualquier función**.
+* Es accesible desde cualquier parte del programa.
+
+```python
+saludo = "Hola desde fuera"  # variable global
+
+def mostrar_saludo():
+    print(saludo)  # puede acceder a la variable global
+
+mostrar_saludo()
+```
+
+---
+
+#### 3. Palabra reservada `global`
+
+* Permite **modificar** una variable global desde dentro de una función.
+* ❗ No se recomienda abusar de su uso, porque puede volver el código difícil de mantener y depurar.
+
+```python
+contador = 0  # variable global
+
+def incrementar():
+    global contador
+    contador += 1
+
+incrementar()
+print(contador)  # 1
+```
+
+---
+
+👉 **Buenas prácticas recomendadas**:
+
+* Usar **variables locales** siempre que sea posible.
+* Evitar modificar variables globales desde funciones.
+* Pasar variables como **parámetros** y devolver valores en lugar de depender de globales.
+
+---
+
+## 💻 Ejemplos prácticos
+
+### Ejemplo 1 — variable local vs global
+
+```python
+x = 10  # variable global
+
+def mostrar():
+    x = 5  # variable local
+    print("Dentro de la función:", x)
+
+mostrar()
+print("Fuera de la función:", x)
+```
+
+➡️ Resultado:
+
+```
+Dentro de la función: 5  
+Fuera de la función: 10  
+```
+
+---
+
+### Ejemplo 2 — mal uso de `global`
+
+```python
+total = 0
+
+def sumar(a, b):
+    global total
+    total = a + b
+    return total
+
+print(sumar(3, 4))  # 7
+print(total)        # 7 (se modificó la variable global)
+```
+
+👉 Mejor solución: devolver el resultado y asignarlo en el programa principal:
+
+```python
+def sumar(a, b):
+    """Devuelve la suma de dos números sin modificar variables globales."""
+    return a + b
+
+resultado = sumar(3, 4)
+print(resultado)  # 7
+```
+
+---
+
+## 📝 Actividad guiada — `local_global.py`
+
+1. Define una variable global `curso = "Python"`.
+2. Crea una función `mostrar_curso()` que imprima la variable global.
+3. Crea otra función `cambiar_curso()` que defina una **variable local** con el mismo nombre y muestre su valor.
+4. Ejecuta ambas funciones y observa la diferencia.
+
+---
+
+## 📝 Reto a entregar — `contador.py`
+
+Crea un script que:
+
+1. Defina una variable global `contador = 0`.
+2. Implemente **tres funciones**:
+
+   * `incrementar()` → suma 1 al contador.
+   * `decrementar()` → resta 1 al contador.
+   * `mostrar_contador()` → imprime el valor actual.
+3. Use la palabra clave `global` para modificar el contador dentro de las funciones.
+4. Desde el programa principal, llama a las funciones en este orden:
+
+   * `incrementar()` dos veces.
+   * `decrementar()` una vez.
+   * `mostrar_contador()`.
+5. Añade un **docstring** en cada función explicando lo que hace.
+
+---
+
+## 📌 Relación con RA
+
+* **RA2. ce1 (a)** → Se han definido funciones correctamente con parámetros y valores de retorno, respetando la modularidad y la reutilización del código.
+* **RA2. ce2 (b)** → Se ha organizado el código utilizando funciones para evitar repeticiones y mejorar la claridad del programa.
+
+---
+

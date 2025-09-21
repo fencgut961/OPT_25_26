@@ -1,0 +1,166 @@
+
+---
+
+# 🔹 Unidad 2.6 – Tuplas
+
+## 🎯 Objetivos de aprendizaje
+
+• Comprender qué es una tupla y en qué se diferencia de una lista.
+• Crear tuplas y acceder a sus elementos.
+• Entender el concepto de inmutabilidad.
+• Usar tuplas en situaciones donde los datos no deben cambiar.
+
+---
+
+## 📚 Explicación teórica
+
+Una **tupla** es una **colección ordenada e inmutable** de elementos.
+
+### ✅ Características principales
+
+* Se definen con **paréntesis `()`**.
+* Pueden contener distintos tipos de datos.
+* Los elementos se acceden **por índice** (igual que en las listas).
+* **No se pueden modificar** después de crearse → ni añadir, ni eliminar, ni cambiar valores.
+* Se utilizan cuando los datos deben permanecer **constantes y seguros**.
+
+👉 Diferencia clave con las listas: **las listas son mutables**, mientras que **las tuplas son inmutables**.
+
+---
+
+### 📌 Creación de tuplas
+
+```python
+tupla_vacia = ()
+colores = ("rojo", "verde", "azul")
+mezcla = ("Ana", 25, True)
+```
+
+---
+
+### 📌 Acceso por índice
+
+```python
+print(colores[0])   # rojo
+print(colores[-1])  # azul
+```
+
+---
+
+### 📌 Tupla con un solo elemento
+
+⚠️ Atención: debe llevar una **coma final** para diferenciarla de un valor normal.
+
+```python
+una_tupla = (5,)
+print(type(una_tupla))  # <class 'tuple'>
+```
+
+---
+
+### 📌 Desempaquetado (unpacking)
+
+Permite asignar los valores de una tupla a variables individuales.
+
+```python
+persona = ("Ana", 30, "Madrid")
+nombre, edad, ciudad = persona
+
+print(nombre)  # Ana
+print(edad)    # 30
+print(ciudad)  # Madrid
+```
+
+---
+
+### 📌 Métodos disponibles
+
+Las tuplas tienen menos métodos que las listas porque son inmutables:
+
+* **count(x)** → cuenta cuántas veces aparece un valor.
+* **index(x)** → devuelve la posición de un valor.
+
+---
+
+### 📌 Conversión entre listas y tuplas
+
+A veces puede ser útil convertir entre ambos tipos:
+
+```python
+lista = [1, 2, 3]
+tupla = tuple(lista)      # convierte lista a tupla
+nueva_lista = list(tupla) # convierte tupla a lista
+```
+
+---
+
+## 💻 Ejemplos prácticos
+
+### Ejemplo 1 — recorrido con for
+
+```python
+dias = ("Lunes", "Martes", "Miércoles")
+
+for d in dias:
+    print(d)
+```
+
+---
+
+### Ejemplo 2 — inmutabilidad
+
+```python
+colores = ("rojo", "verde", "azul")
+# colores[1] = "amarillo"  # ❌ Error: las tuplas no se pueden modificar
+```
+
+---
+
+### Ejemplo 3 — uso de tuplas como claves en diccionarios
+
+Las tuplas son **hashables** (a diferencia de las listas), por lo que se pueden usar como claves en diccionarios:
+
+```python
+coordenadas = {
+    (40.4168, -3.7038): "Madrid",
+    (48.8566, 2.3522): "París"
+}
+
+print(coordenadas[(40.4168, -3.7038)])  # Madrid
+```
+
+---
+
+## 📝 Actividad guiada — `dias_semana.py`
+
+1. Define una tupla con los 7 días de la semana.
+2. Muestra el primer y el último día.
+3. Recorre la tupla con un bucle `for` para mostrar todos los días.
+4. Usa `index()` para encontrar en qué posición está el día `"Miércoles"`.
+
+---
+
+## 📝 Reto a entregar — `informacion_persona.py`
+
+1. Crea una tupla llamada `persona` con los siguientes datos: **nombre, edad, ciudad**.
+2. Desempaqueta la tupla en tres variables (`nombre`, `edad`, `ciudad`).
+3. Muestra en pantalla un mensaje con la información.
+4. Añade un **docstring** al inicio del programa explicando qué hace.
+
+📌 Ejemplo de salida:
+
+```
+Nombre: Ana  
+Edad: 25  
+Ciudad: Madrid  
+```
+
+---
+
+## 📌 Relación con RA
+
+* **RA2. ce3 (c)** → Se han manipulado correctamente listas, tuplas y diccionarios, creando, accediendo y modificando elementos en estas estructuras.
+* **RA2. ce4 (d)** → Se han utilizado las estructuras de datos adecuadas (listas, tuplas, diccionarios) según la naturaleza del problema y la eficiencia del código.
+
+---
+

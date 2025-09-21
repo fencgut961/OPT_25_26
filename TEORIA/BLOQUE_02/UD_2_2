@@ -1,0 +1,161 @@
+
+---
+
+# 🔹 Unidad 2.2 – Funciones con parámetros
+
+## 🎯 Objetivos de aprendizaje
+
+• Comprender **qué son los parámetros** y cómo permiten personalizar las funciones.
+• Diferenciar entre **parámetros posicionales** y **parámetros con valor por defecto**.
+• Aprender a **pasar información a una función** desde el programa principal.
+• Utilizar **argumentos nombrados** para mayor claridad y legibilidad.
+
+---
+
+## 📚 Explicación teórica
+
+Hasta ahora vimos funciones que no recibían datos. Pero en la práctica, la mayoría de las funciones trabajan con **información que reciben del exterior**.
+
+🔑 Conceptos clave:
+
+* **Parámetros** → variables que se definen en la función y que reciben datos.
+* **Argumentos** → los valores reales que pasamos cuando llamamos a la función.
+
+Ejemplo sencillo:
+
+```python
+def saludar(nombre):
+    """Muestra un saludo usando un nombre recibido como parámetro."""
+    print(f"Hola {nombre}!")
+
+saludar("Ana")  # 'Ana' es el argumento
+```
+
+👉 Esto hace que las funciones sean **reutilizables y personalizables**.
+
+---
+
+### 📌 Tipos de parámetros
+
+1. **Parámetros posicionales**
+
+   * Se pasan en el mismo orden en que se definieron.
+
+   ```python
+   def saludar(nombre, edad):
+       print(f"Hola {nombre}, tienes {edad} años.")
+
+   saludar("Ana", 20)  # nombre="Ana", edad=20
+   ```
+
+---
+
+2. **Parámetros con valor por defecto**
+
+   * Si no se pasa un argumento, se usa el valor establecido por defecto.
+
+   ```python
+   def presentar(nombre, pais="España"):
+       print(f"Me llamo {nombre} y soy de {pais}.")
+
+   presentar("Carlos")            # usa "España" por defecto
+   presentar("Laura", "México")   # sobrescribe el valor
+   ```
+
+---
+
+3. **Argumentos nombrados (keyword arguments)**
+
+   * Se indica el nombre del parámetro al llamar a la función.
+   * Permiten cambiar el orden de los argumentos.
+
+   ```python
+   def info_usuario(nombre, edad, ciudad):
+       print(f"{nombre}, {edad} años, vive en {ciudad}.")
+
+   info_usuario(ciudad="Madrid", edad=30, nombre="Luis")
+   ```
+
+---
+
+✅ **Buenas prácticas con parámetros:**
+
+* Usa **nombres descriptivos** en los parámetros (`nombre`, `edad`, `ciudad`) en lugar de letras sin sentido (`x`, `y`).
+* Si una función tiene muchos parámetros, es recomendable usar **argumentos nombrados** para evitar errores de orden.
+* Evita usar valores por defecto que sean **listas o diccionarios mutables**, ya que pueden causar errores inesperados.
+
+---
+
+## 💻 Ejemplos prácticos
+
+### Ejemplo 1 — función con varios parámetros
+
+```python
+def multiplicar(a, b):
+    """Devuelve el producto de dos números."""
+    print(f"{a} x {b} = {a * b}")
+
+multiplicar(3, 4)
+```
+
+---
+
+### Ejemplo 2 — parámetros con valor por defecto
+
+```python
+def bienvenida(nombre, curso="Python"):
+    """Muestra un mensaje de bienvenida al curso."""
+    print(f"Bienvenido {nombre} al curso de {curso}.")
+
+bienvenida("Ana")           # usa "Python" por defecto
+bienvenida("Pedro", "Java") # sobrescribe el curso
+```
+
+---
+
+### Ejemplo 3 — argumentos nombrados
+
+```python
+def mostrar_persona(nombre, edad, profesion):
+    """Muestra los datos básicos de una persona."""
+    print(f"Nombre: {nombre}, Edad: {edad}, Profesión: {profesion}")
+
+# Llamadas válidas
+mostrar_persona("Laura", 25, "Ingeniera")   # posicionales
+mostrar_persona(edad=40, profesion="Doctor", nombre="José")  # nombrados
+```
+
+---
+
+## 📝 Actividad guiada — `operaciones.py`
+
+1. Define una función `sumar(a, b)` que imprima la suma de dos números.
+2. Define una función `saludo_personal(nombre, saludo="Hola")` que muestre un saludo personalizado.
+3. Llama a ambas funciones con distintos parámetros desde el programa principal.
+
+👉 **Objetivo**: practicar parámetros posicionales y valores por defecto.
+
+---
+
+## 💡 Reto a entregar — `registro_usuario.py`
+
+1. Crea una función `registrar_usuario(nombre, edad, ciudad="Madrid")`.
+2. La función debe mostrar en pantalla:
+   `"Usuario: [nombre], Edad: [edad], Ciudad: [ciudad]"`.
+3. Debe poder llamarse con:
+
+   * Todos los argumentos posicionales.
+   * Algún argumento omitido, usando el valor por defecto.
+   * Argumentos nombrados en distinto orden.
+4. Incluye un **docstring** en la función.
+5. Desde el programa principal, llama a la función al menos **3 veces** con diferentes combinaciones de argumentos.
+
+---
+
+## 📌 Relación con RA
+
+* **RA2. ce1 (a)** → Se han definido funciones correctamente con parámetros y valores de retorno, respetando la modularidad y la reutilización del código.
+* **RA2. ce2 (b)** → Se ha organizado el código utilizando funciones para evitar repeticiones y mejorar la claridad del programa.
+
+---
+
