@@ -1,0 +1,277 @@
+
+---
+
+# 🔹 Unidad 3.1 – Manejo de ficheros: lectura, escritura y manejo de excepciones
+
+---
+
+## 🎯 Objetivos de aprendizaje
+
+* Comprender qué es un fichero y por qué se usa en programación.
+* Diferenciar entre ficheros de texto y binarios.
+* Aprender a abrir, leer y escribir ficheros en Python.
+* Conocer los modos de apertura (`r`, `w`, `a`, `b`).
+* Usar la instrucción `with` para asegurar el cierre correcto de ficheros.
+* Manejar excepciones comunes (`FileNotFoundError`, `PermissionError`).
+
+---
+
+## 📚 Explicación teórica
+
+Un **fichero** es un recurso externo que permite **guardar datos de forma persistente** en el disco, más allá de la ejecución de un programa.
+
+En Python, se utiliza la función:
+
+```python
+open(nombre, modo, encoding)
+```
+
+### 1. Modos de apertura
+
+Usaremos siempre variables para indicar el modo:
+
+* `modo = "r"` → **lectura** (error si no existe).
+* `modo = "w"` → **escritura** (borra el contenido si existe).
+* `modo = "a"` → **anexar** (escribe al final, sin borrar).
+* `modo = "rb" / "wb"` → **lectura/escritura en binario**.
+
+> Recomendación: usar `encoding="utf-8"` al trabajar con texto.
+
+---
+
+### 2. Lectura de ficheros
+
+* `.read()` → lee todo el contenido.
+* `.readline()` → lee una sola línea.
+* `.readlines()` → devuelve todas las líneas en una lista.
+* Iterar con `for` → lee línea por línea de forma eficiente.
+
+Ejemplo:
+
+```python
+archivo = "poema.txt"
+modo = "r"
+encoding = "utf-8"
+
+with open(archivo, modo, encoding=encoding) as f:
+    for linea in f:
+        print(linea.strip())
+```
+
+---
+
+### 3. Escritura de ficheros
+
+* `"w"` sobrescribe el archivo.
+* `"a"` añade contenido al final.
+
+Ejemplo:
+
+```python
+archivo = "notas.txt"
+modo = "a"  # anexar
+encoding = "utf-8"
+
+with open(archivo, modo, encoding=encoding) as f:
+    f.write("Nueva nota añadida\n")
+```
+
+---
+
+### 4. Uso de `with`
+
+El bloque `with` asegura que el archivo se cierre automáticamente:
+
+```python
+archivo = "texto.txt"
+modo = "r"
+encoding = "utf-8"
+
+with open(archivo, modo, encoding=encoding) as f:
+    contenido = f.read()
+
+print("¿Archivo cerrado?", f.closed)  # True
+```
+
+---
+
+### 5. Manejo de excepciones
+
+Errores comunes al trabajar con ficheros:
+
+* `FileNotFoundError` → el archivo no existe.
+* `PermissionError` → no se tienen permisos.
+
+Ejemplo con `try/except`:
+
+```python
+archivo = "inexistente.txt"
+modo = "r"
+encoding = "utf-8"
+
+try:
+    with open(archivo, modo, encoding=encoding) as f:
+        print(f.read())
+except FileNotFoundError:
+    print("❌ El archivo no existe.")
+except PermissionError:
+    print("❌ No tienes permisos para acceder al archivo.")
+```
+
+---
+
+## 💻 Ejemplos prácticos
+
+Ejemplo 1 — Leer todo el contenido:
+
+```python
+archivo = "poema.txt"
+modo = "r"
+encoding = "utf-8"
+
+with open(archivo, modo, encoding=encoding) as f:
+    contenido = f.read()
+    print(contenido)
+```
+
+Ejemplo 2 — Escribir un archivo desde cero:
+
+```python
+archivo = "salida.txt"
+modo = "w"
+encoding = "utf-8"
+
+with open(archivo, modo, encoding=encoding) as f:
+    f.write("Primera línea\n")
+    f.write("Segunda línea\n")
+```
+
+Ejemplo 3 — Lectura línea a línea con manejo de errores:
+
+```python
+archivo = "datos.txt"
+modo = "r"
+encoding = "utf-8"
+
+try:
+    with open(archivo, modo, encoding=encoding) as f:
+        for linea in f:
+            print(linea.strip())
+except FileNotFoundError:
+    print("No se encontró el archivo.")
+```
+
+---
+
+## 📝 Actividad guiada — `lectura_escritura.py`
+
+1. Crea un archivo llamado `mi_archivo.txt` y escribe 3 frases (una por línea).
+2. Vuelve a abrirlo en modo lectura y muestra:
+
+   * Todo el contenido de golpe.
+   * La primera línea con `.readline()`.
+   * Todas las líneas en una lista con `.readlines()`.
+3. Abre el archivo en modo anexar y agrega una nueva línea.
+
+👉 **Objetivo:** practicar `read`, `readline`, `readlines`, `write` y el uso de `modo` como variable.
+
+---
+
+Totalmente de acuerdo ✅ — el **reto `gestor_notas.py`** que te propuse está bien como primer contacto, pero es demasiado simple si queremos que el alumno demuestre de verdad lo aprendido en **lectura, escritura y manejo de excepciones** durante 2 semanas (Semanas 11–12).
+
+Te propongo una **versión mejorada del reto**, manteniéndonos dentro de los temas de la unidad (sin meternos todavía en módulos, JSON, ni librerías externas):
+
+---
+
+## 📝 Reto a entregar — `gestor_notas_avanzado.py`
+
+Crea un programa de consola que gestione un archivo de notas (`notas.txt`).
+
+### Requisitos:
+
+1. **Al iniciar:**
+
+   * Si el archivo existe → mostrar todas las notas numeradas (ej: `1. Comprar pan`).
+   * Si no existe → mostrar un mensaje y crearlo vacío automáticamente.
+
+2. **Menú de opciones:**
+   El usuario debe poder elegir entre:
+
+   * `1. Ver notas` → muestra todas las notas guardadas.
+   * `2. Añadir nota` → pide un texto y lo añade al final del archivo.
+   * `3. Eliminar nota` → pide el número de la nota y la elimina del archivo.
+   * `4. Salir`.
+
+3. **Control de errores:**
+
+   * Manejar `FileNotFoundError` y `PermissionError`.
+   * Manejar errores de entrada del usuario (ej: si introduce un número inválido al eliminar).
+
+4. **Detalles técnicos:**
+
+   * Usa siempre una variable `modo` para abrir los ficheros (`"r"`, `"a"`, `"w"`).
+   * Usa `with open(...)` para asegurar el cierre automático.
+   * Documenta el programa con un docstring al inicio y comentarios en las funciones.
+
+---
+
+### Ejemplo de ejecución:
+
+```
+📓 Gestor de Notas
+Archivo encontrado: notas.txt
+
+Notas actuales:
+1. Comprar pan
+2. Estudiar Python
+
+--- Menú ---
+1. Ver notas
+2. Añadir nota
+3. Eliminar nota
+4. Salir
+Elige una opción: 2
+
+Escribe la nueva nota: Hacer ejercicio
+✅ Nota guardada con éxito.
+
+--- Menú ---
+1. Ver notas
+2. Añadir nota
+3. Eliminar nota
+4. Salir
+Elige una opción: 3
+
+Número de nota a eliminar: 1
+✅ Nota eliminada correctamente.
+
+--- Menú ---
+1. Ver notas
+2. Añadir nota
+3. Eliminar nota
+4. Salir
+Elige una opción: 4
+
+👋 ¡Hasta la próxima!
+```
+
+---
+
+👉 De esta forma, el alumno practica:
+
+* Lectura completa de archivos.
+* Escritura y anexado.
+* Reescritura de archivos (al eliminar notas).
+* Uso de variables `modo`.
+* Manejo de excepciones reales.
+* Un mini-programa con menú que combina todo lo visto en la unidad.
+
+---
+
+## 📌 Relación con RA
+
+* **RA3.ce1 (a):** se han manipulado ficheros en Python, comprendiendo los modos de apertura y su uso.
+* **RA3.ce2 (b):** se han aplicado técnicas de control de errores para mejorar la robustez del programa.
+
+---
+
