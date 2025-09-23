@@ -1,0 +1,321 @@
+Perfecto 🙌, aquí tienes la **Unidad 3.2 completa** con la teoría, ejemplos, actividad guiada y un **reto de entrega adaptado** al nivel de tus alumnos (que todavía están aprendiendo a programar).
+
+---
+
+# 🔹 Unidad 3.2 – Módulos estándar (os, sys, math) y librerías externas (pip)
+
+---
+
+## 🎯 Objetivos de aprendizaje
+
+* Comprender qué es un **módulo** en Python.
+* Importar y usar **módulos estándar** como `math`, `os` y `sys`.
+* Diferenciar entre `import`, `from ... import ...` y alias (`as`).
+* Conocer qué es **pip** y cómo instalar librerías externas.
+* Usar una librería externa simple (`requests`) para realizar una prueba básica.
+
+---
+
+## 📚 Explicación teórica
+
+### 1. ¿Qué es un módulo?
+
+Un **módulo** es un archivo de Python que contiene funciones, clases y variables que se pueden reutilizar.
+
+Python distingue entre:
+
+* **Módulos estándar** → vienen incluidos con Python (`os`, `sys`, `math`, etc.).
+* **Módulos externos** → deben instalarse con **pip** (ejemplo: `requests`).
+
+---
+
+### 2. Formas de importar módulos
+
+```python
+import math                 # importa todo el módulo
+from math import sqrt       # importa solo sqrt
+import math as m            # alias para el módulo
+```
+
+---
+
+### 3. Módulo `math`
+
+Proporciona funciones matemáticas avanzadas.
+
+Ejemplos:
+
+* `math.sqrt(x)` → raíz cuadrada.
+* `math.factorial(x)` → factorial.
+* `math.pi`, `math.e` → constantes matemáticas.
+* `math.pow(x, y)` → potencia.
+
+```python
+import math
+
+numero = 5
+print("Raíz cuadrada:", math.sqrt(numero))
+print("Factorial:", math.factorial(numero))
+print("Valor de PI:", math.pi)
+```
+
+---
+
+### 4. Módulo `os`
+
+Permite interactuar con el sistema operativo.
+
+Ejemplos:
+
+* `os.getcwd()` → devuelve el directorio actual.
+* `os.listdir(ruta)` → lista los archivos en una carpeta.
+* `os.mkdir("nueva")` → crea una carpeta.
+
+```python
+import os
+
+print("Directorio actual:", os.getcwd())
+print("Archivos en este directorio:", os.listdir("."))
+```
+
+---
+
+### 5. Módulo `sys`
+
+Permite obtener información del intérprete de Python.
+
+Ejemplos:
+
+* `sys.version` → versión de Python.
+* `sys.platform` → sistema operativo.
+
+```python
+import sys
+
+print("Versión de Python:", sys.version)
+print("Sistema operativo:", sys.platform)
+```
+
+---
+
+### 6. Librerías externas y `pip`
+
+* **pip** es el gestor de paquetes de Python.
+* Con él podemos instalar librerías hechas por la comunidad.
+
+Ejemplo de instalación en consola:
+
+```bash
+pip install requests
+```
+
+Ejemplo de uso:
+
+```python
+import requests
+
+url = "https://api.github.com"
+respuesta = requests.get(url)
+
+print("Código de estado:", respuesta.status_code)
+print("Primeros 100 caracteres:", respuesta.text[:100])
+```
+
+---
+
+## 💻 Ejemplos prácticos
+
+Ejemplo 1 — Calcular el área de un círculo con `math`:
+
+```python
+import math
+
+radio = 3
+area = math.pi * (radio ** 2)
+print("Área del círculo:", area)
+```
+
+Ejemplo 2 — Mostrar los archivos en el directorio actual con `os`:
+
+```python
+import os
+
+print("Archivos en la carpeta actual:")
+for nombre in os.listdir("."):
+    print("-", nombre)
+```
+
+Ejemplo 3 — Mostrar versión de Python y sistema operativo con `sys`:
+
+```python
+import sys
+
+print("Versión de Python:", sys.version)
+print("Sistema operativo:", sys.platform)
+```
+
+Ejemplo 4 — Usar `requests` para hacer una petición GET:
+
+```python
+import requests
+
+respuesta = requests.get("https://api.github.com")
+print("Código de estado:", respuesta.status_code)
+print("Primeros 100 caracteres de la respuesta:")
+print(respuesta.text[:100])
+```
+
+---
+
+## 📝 Actividad guiada — `modulos_basicos.py`
+
+1. Pide al usuario un número.
+2. Usa `math` para mostrar su raíz cuadrada y factorial.
+3. Usa `os` para mostrar el directorio actual y los archivos en él.
+4. Usa `sys` para mostrar la versión de Python y el sistema operativo.
+
+👉 **Objetivo:** familiarizarse con módulos estándar de Python.
+
+---
+
+# 📝 Reto a entregar — `mini_herramienta.py`
+
+En este reto crearás un **programa de consola con menú** que combine lo aprendido sobre **módulos estándar** y el uso de una **librería externa instalada con pip**.
+
+---
+
+## 🔹 Requisitos del programa
+
+1. **Menú principal**
+   Al iniciar, el programa debe mostrar:
+
+   ```
+   --- Menú de Herramientas ---
+   1. Cálculos matemáticos
+   2. Explorador de directorios
+   3. Consulta a API (requests)
+   4. Salir
+   ```
+
+   El usuario podrá elegir una opción escribiendo un número.
+
+---
+
+2. **Opción 1 – Cálculos matemáticos (`math`)**
+
+   * Pedir un número entero al usuario.
+   * Mostrar en pantalla:
+
+     * Su raíz cuadrada.
+     * Su factorial.
+     * Su potencia al cuadrado.
+
+---
+
+3. **Opción 2 – Explorador de directorios (`os`)**
+
+   * Mostrar el directorio actual.
+   * Listar todos los archivos y carpetas de esa ruta.
+   * Preguntar al usuario si quiere **crear una nueva carpeta**:
+
+     * Si responde “sí”, pedir el nombre y crearla con `os.mkdir()`.
+     * Si responde “no”, volver al menú.
+
+---
+
+4. **Opción 3 – Consulta a API (`requests`)**
+
+   * Hacer una petición GET a la URL fija:
+
+     ```
+     https://api.github.com
+     ```
+
+   * Mostrar en pantalla:
+
+     * El código de estado (`status_code`).
+     * El tamaño de la respuesta en caracteres (`len(respuesta.text)`).
+     * Los primeros 200 caracteres del contenido (`respuesta.text[:200]`).
+
+   * Manejar errores con `try/except` para evitar que el programa se rompa si no hay conexión.
+
+---
+
+5. **Opción 4 – Salir**
+
+   * Finalizar el programa mostrando un mensaje de despedida.
+
+---
+
+## 🔹 Ejemplo de ejecución
+
+```
+--- Menú de Herramientas ---
+1. Cálculos matemáticos
+2. Explorador de directorios
+3. Consulta a API (requests)
+4. Salir
+Elige una opción: 1
+
+Introduce un número: 5
+Raíz cuadrada: 2.23606797749979
+Factorial: 120
+Potencia al cuadrado: 25
+
+--- Menú de Herramientas ---
+1. Cálculos matemáticos
+2. Explorador de directorios
+3. Consulta a API (requests)
+4. Salir
+Elige una opción: 2
+
+Directorio actual: C:\Users\Alumno\proyecto
+Archivos en la carpeta:
+- main.py
+- datos.txt
+- notas.txt
+¿Quieres crear una nueva carpeta? (s/n): s
+Introduce el nombre de la carpeta: pruebas
+✅ Carpeta creada con éxito.
+
+--- Menú de Herramientas ---
+1. Cálculos matemáticos
+2. Explorador de directorios
+3. Consulta a API (requests)
+4. Salir
+Elige una opción: 3
+
+Petición a https://api.github.com
+Código de estado: 200
+Tamaño de la respuesta: 2312 caracteres
+Contenido (200 caracteres):
+{"current_user_url":"https://api.github.com/user","current_user_authorizations_html_url": ...
+
+--- Menú de Herramientas ---
+1. Cálculos matemáticos
+2. Explorador de directorios
+3. Consulta a API (requests)
+4. Salir
+Elige una opción: 4
+
+👋 ¡Hasta la próxima!
+```
+
+---
+
+## 🔹 Qué se evalúa en esta entrega
+
+* Uso de **módulos estándar** (`math`, `os`).
+* Uso de una **librería externa** (`requests`) instalada con pip.
+* Manejo de **entrada y salida de datos por consola**.
+* Control básico de errores con `try/except`.
+* Organización del programa con **menú de opciones**.
+
+---
+
+## 📌 Relación con RA
+
+* **RA3.ce3 (c):** se han utilizado módulos estándar para ampliar las funcionalidades de Python.
+* **RA3.ce4 (d):** se ha demostrado la capacidad de instalar y usar librerías externas con pip.
+
+---

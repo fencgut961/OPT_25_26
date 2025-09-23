@@ -1,0 +1,354 @@
+
+---
+
+# 🔹 Unidad 3.3 – Creación de módulos personalizados y organización de proyectos
+
+---
+
+## 🎯 Objetivos de aprendizaje
+
+* Comprender qué es un **módulo personalizado** en Python.
+* Crear y reutilizar funciones dentro de módulos propios.
+* Importar módulos creados en distintos programas.
+* Diferenciar entre módulos, paquetes y proyectos.
+* Conocer el papel del archivo `__init__.py` en los paquetes.
+* Comparar el uso de **carpetas normales** y **paquetes** en Python.
+* Organizar un proyecto sencillo en varias carpetas y archivos.
+
+---
+
+## 📚 Explicación teórica
+
+### 1. ¿Qué es un módulo?
+
+Un **módulo** es un archivo de Python (`.py`) que contiene código reutilizable (funciones, clases, variables).
+Ejemplo: `math`, `os`, `sys`.
+
+Además de los módulos estándar y externos, es posible **crear módulos personalizados**.
+
+---
+
+### 2. Creación de un módulo propio
+
+```python
+# utilidades.py
+def saludar(nombre):
+    return f"Hola, {nombre}!"
+
+def sumar(a, b):
+    return a + b
+```
+
+Uso en otro archivo:
+
+```python
+# programa.py
+import utilidades
+
+print(utilidades.saludar("Ana"))
+print(utilidades.sumar(3, 4))
+```
+
+---
+
+### 3. Formas de importar
+
+```python
+import utilidades                 # importa todo
+from utilidades import saludar    # importa solo lo necesario
+import utilidades as u            # alias
+```
+
+---
+
+### 4. Paquetes en Python y `__init__.py`
+
+Un **paquete** es una carpeta que agrupa varios módulos y que contiene un archivo especial `__init__.py`.
+
+* Si la carpeta **no tiene** `__init__.py`, Python la trata como una carpeta normal.
+* Si la carpeta **tiene** `__init__.py`, Python la reconoce como un **paquete**.
+* El archivo `__init__.py` puede estar vacío o incluir importaciones y código de inicialización.
+
+Ejemplo de estructura:
+
+```
+mi_proyecto/
+│── main.py
+│── utilidades/
+│   │── __init__.py
+│   │── cadenas.py
+│   │── matematicas.py
+```
+
+En `main.py`:
+
+```python
+from utilidades.matematicas import sumar
+from utilidades.cadenas import contar_letras
+```
+
+---
+
+### 5. Diferencia entre carpetas y paquetes
+
+| Aspecto               | Carpeta normal                  | Paquete (`__init__.py`)           |
+| --------------------- | ------------------------------- | --------------------------------- |
+| Reconocido por Python | ❌ No                            | ✅ Sí                              |
+| Importaciones         | Necesita hacks con `sys.path`   | Naturales con `import paquete`    |
+| Inicialización        | No hay                          | Puede ejecutar código al importar |
+| Centralización        | No se puede                     | Sí, en `__init__.py`              |
+| Reutilización         | Difícil mover a otros proyectos | Fácil copiar o instalar con pip   |
+
+#### Ejemplo con carpeta normal (sin `__init__.py`):
+
+```
+mi_proyecto/
+│── main.py
+│── utilidades/
+│   │── matematicas.py
+```
+
+`main.py`:
+
+```python
+import utilidades.matematicas   # ❌ Error
+```
+
+Para que funcione habría que forzar la ruta:
+
+```python
+import sys
+sys.path.append("utilidades")   # 🚨 hack poco limpio
+
+import matematicas
+print(matematicas.sumar(3, 4))
+```
+
+---
+
+#### Ejemplo con paquete (con `__init__.py`):
+
+```
+mi_proyecto/
+│── main.py
+│── utilidades/
+│   │── __init__.py
+│   │── matematicas.py
+│   │── cadenas.py
+```
+
+`matematicas.py`:
+
+```python
+def sumar(a, b):
+    return a + b
+```
+
+`__init__.py`:
+
+```python
+from .matematicas import sumar
+```
+
+`main.py`:
+
+```python
+import utilidades
+
+print(utilidades.sumar(5, 3))  # ✅ 8
+```
+
+---
+
+### 6. Organización de proyectos
+
+Buenas prácticas básicas:
+
+* Mantener un archivo principal (`main.py`) como punto de entrada.
+* Crear módulos separados para funciones reutilizables.
+* Usar nombres claros y descriptivos.
+* Convertir carpetas en paquetes cuando el proyecto crezca.
+
+Ejemplo simple:
+
+```
+proyecto_notas/
+│── main.py
+│── notas.py
+│── utilidades.py
+```
+
+Ejemplo con paquete:
+
+```
+gestor_tareas/
+│── main.py
+│── gestor/
+│   │── __init__.py
+│   │── tareas.py
+│   │── utils.py
+```
+
+---
+
+## 💻 Ejemplos prácticos
+
+Ejemplo 1 — Módulo de operaciones:
+
+```python
+# operaciones.py
+def cuadrado(x):
+    return x * x
+
+def cubo(x):
+    return x * x * x
+```
+
+```python
+# main.py
+import operaciones
+
+print("2 al cuadrado:", operaciones.cuadrado(2))
+print("3 al cubo:", operaciones.cubo(3))
+```
+
+---
+
+Ejemplo 2 — Reutilizar un módulo en varios programas:
+
+```python
+# saludos.py
+def hola():
+    return "¡Hola!"
+
+def adios():
+    return "¡Adiós!"
+```
+
+```python
+# app1.py
+import saludos
+print(saludos.hola())
+```
+
+```python
+# app2.py
+from saludos import adios
+print(adios())
+```
+
+---
+
+## 📝 Actividad guiada — `mis_modulos`
+
+1. Crear un módulo `matematicas.py` con funciones:
+
+   * `suma(a, b)`
+   * `resta(a, b)`
+   * `multiplicar(a, b)`
+   * `dividir(a, b)` (controlando la división por cero).
+
+2. Crear un módulo `cadenas.py` con funciones:
+
+   * `contar_letras(texto)` → devuelve el número de caracteres.
+   * `invertir(texto)` → devuelve el texto al revés.
+
+3. Crear un archivo `main.py`:
+
+   * Importar los dos módulos.
+   * Pedir al usuario un número y un texto.
+   * Usar las funciones de `matematicas.py` y `cadenas.py` con esos datos.
+
+👉 **Objetivo:** comprender cómo separar funciones en módulos y reutilizarlas en un programa principal.
+
+---
+
+## 📝 Reto a entregar — `gestor_tareas_modular`
+
+Organiza un **mini proyecto** en varios archivos que funcione como un gestor sencillo de tareas.
+
+### 🔹 Estructura del proyecto
+
+```
+gestor_tareas/
+│── main.py
+│── gestor/
+│   │── __init__.py
+│   │── tareas.py
+│   │── utils.py
+```
+
+### 🔹 Detalles de cada archivo
+
+1. **`tareas.py`**
+
+   * `cargar_tareas()` → lee las tareas desde `tareas.txt` (si no existe, devuelve lista vacía).
+   * `guardar_tarea(tarea)` → añade una nueva tarea al archivo.
+   * `listar_tareas()` → devuelve todas las tareas en forma de lista numerada.
+
+2. **`utils.py`**
+
+   * `mostrar_menu()` → imprime el menú de opciones.
+   * `pedir_opcion()` → pide un número válido (1, 2 o 3).
+
+3. **`__init__.py`**
+
+   * Centraliza las importaciones:
+
+   ```python
+   from .tareas import cargar_tareas, guardar_tarea, listar_tareas
+   from .utils import mostrar_menu, pedir_opcion
+   ```
+
+4. **`main.py`**
+
+   * Importa directamente el paquete `gestor`.
+   * Muestra un menú con opciones:
+
+     ```
+     1. Ver tareas
+     2. Añadir tarea
+     3. Salir
+     ```
+   * Ejecuta la acción correspondiente.
+
+---
+
+### 🔹 Ejemplo de ejecución
+
+```
+--- Gestor de Tareas ---
+1. Ver tareas
+2. Añadir tarea
+3. Salir
+Elige una opción: 1
+
+Tareas actuales:
+1. Comprar pan
+2. Estudiar Python
+
+--- Gestor de Tareas ---
+1. Ver tareas
+2. Añadir tarea
+3. Salir
+Elige una opción: 2
+
+Escribe la nueva tarea: Hacer ejercicio
+✅ Tarea guardada con éxito.
+
+--- Gestor de Tareas ---
+1. Ver tareas
+2. Añadir tarea
+3. Salir
+Elige una opción: 3
+👋 ¡Hasta la próxima!
+```
+
+---
+
+## 📌 Relación con RA
+
+* **RA3.ce5 (e):** se han creado y utilizado módulos personalizados en Python.
+* **RA3.ce6 (f):** se ha organizado un proyecto sencillo en varios archivos y paquetes.
+
+---
